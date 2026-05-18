@@ -159,22 +159,10 @@ vulnsight/
 ├── grype.py
 ├── image_resolver.py
 ├── metadata.py
-├── __pycache__
-│   ├── container_context.cpython-314.pyc
-│   ├── grype.cpython-314.pyc
-│   ├── metadata.cpython-314.pyc
-│   ├── sbom_generator.cpython-314.pyc
-│   ├── scan_engine.cpython-314.pyc
-│   └── scanner.cpython-314.pyc
 ├── report_generator
 │   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── __init__.cpython-314.pyc
-│   │   └── report_pipeline.cpython-314.pyc
 │   └── report_pipeline.py
 ├── risk_engine
-│   ├── __pycache__
-│   │   └── risk_engine.cpython-314.pyc
 │   ├── risk_config.json
 │   └── risk_engine.py
 ├── sbom_generator.py
@@ -189,32 +177,13 @@ vulnsight/
 │   ├── __init__.py
 │   ├── kev.py
 │   ├── nvd.py
-│   ├── __pycache__
-│   │   ├── cache.cpython-314.pyc
-│   │   ├── cve_info.cpython-314.pyc
-│   │   ├── epss.cpython-314.pyc
-│   │   ├── __init__.cpython-314.pyc
-│   │   ├── kev.cpython-314.pyc
-│   │   ├── nvd.cpython-314.pyc
-│   │   └── threat_sources.cpython-314.pyc
 │   ├── test_threat_intel.py
 │   └── threat_sources.py
-├── utils
-│   ├── cli_summary.py
-│   ├── dependency_checker.py
-│   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── cli_summary.cpython-314.pyc
-│   │   ├── __init__.cpython-314.pyc
-│   │   └── summary.cpython-314.pyc
-│   └── summary.py
-└── vulnsight.egg-info
-    ├── dependency_links.txt
-    ├── entry_points.txt
-    ├── PKG-INFO
-    ├── requires.txt
-    ├── SOURCES.txt
-    └── top_level.txt
+└── utils
+    ├── cli_summary.py
+    ├── dependency_checker.py
+    ├── __init__.py
+    └── summary.py
 ```
 
 ## Caching
