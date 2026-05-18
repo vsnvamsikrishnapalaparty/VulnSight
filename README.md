@@ -67,6 +67,7 @@ The full HTML and PDF reports land in `artifacts/<image>_<digest>/`.
 ![Terminal scan summary of php:7.4-apache](./docs/screenshots/CLI_VulnSight_php7.4-apache.png)
 ![Interactive HTML report rendered in browser](./docs/screenshots/Report_VulnSight_php7.4-apache.png)
 ![PDF report cover page](./docs/screenshots/PDF_VulnSight_php7.4-apache.png)
+📄 **[Download the full PDF report](./docs/VulnSight_php7.4-apache_report.pdf)** to see the complete multi-page output.
 
 ## Why I built it
 
