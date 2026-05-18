@@ -1,0 +1,36 @@
+# VulnSight runtime dependencies
+# ─────────────────────────────────────────────────────────────
+# These are the Python packages required to run a scan. System-level
+# binaries (syft, grype, docker) are installed separately -- see README.
+#
+# Install:
+#   pip install -r requirements.txt
+#
+# Optional system dependency for PDF generation (weasyprint):
+#   Debian/Ubuntu:  apt install libpango-1.0-0 libpangoft2-1.0-0
+#   Fedora/RHEL:    dnf install pango
+#   Alpine:         apk add pango
+
+# ── Docker SDK ──────────────────────────────────────────────
+# Used by scanner.py to resolve and inspect Docker images.
+docker>=7.0.0
+
+# ── HTTP client ─────────────────────────────────────────────
+# Used by the threat_intel modules (nvd.py, epss.py, kev.py) to fetch
+# CVE enrichment data from NVD, FIRST.org, and CISA.
+requests>=2.31.0
+
+# ── Environment loading ─────────────────────────────────────
+# Reads .env file for NVD_API_KEY at startup.
+python-dotenv>=1.0.0
+
+# ── Progress bars ───────────────────────────────────────────
+# Used during SBOM generation, Grype scanning, and NVD enrichment.
+tqdm>=4.66.0
+
+# ── PDF generation ──────────────────────────────────────────
+# Renders the print-optimized HTML to PDF. Requires Pango at the
+# system level (see README). If weasyprint isn't installed, the
+# pipeline still produces the interactive HTML report -- only the
+# PDF artifact and the "Download PDF" button are skipped.
+weasyprint>=60.0

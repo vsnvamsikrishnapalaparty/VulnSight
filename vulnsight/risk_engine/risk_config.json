@@ -1,0 +1,73 @@
+{
+  "cve_weights": {
+    "cvss_multiplier": 1.0,                // Weight applied to CVSS base score
+    "epss_multiplier": 10.0,               // EPSS probability (0–1) scaled by this
+    "kev_bonus": 20.0,                     // Bonus if CVE is in CISA KEV catalog
+
+    "age_bonus": {
+      "older_than_365": 3.0,               // CVE older than 1 year
+      "older_than_180": 2.0,               // CVE older than 6 months
+      "older_than_30": 1.0                 // CVE older than 1 month
+    },
+
+    "fix_bonus": 2.0,                      // Bonus if a fix is available
+
+    "severity_weights": {
+      "critical": 4.0,                     // Severity: CRITICAL
+      "high": 3.0,                         // Severity: HIGH
+      "medium": 2.0,                       // Severity: MEDIUM
+      "low": 1.0,                          // Severity: LOW
+      "unknown": 0.5                       // Severity missing or unknown
+    },
+
+    "cwe_bonus": {
+      "high_impact_list": [
+        "CWE-787",  // Out-of-bounds Write
+        "CWE-79",   // Cross-Site Scripting (XSS)
+        "CWE-89",   // SQL Injection
+        "CWE-416",  // Use-after-free
+        "CWE-20",   // Improper Input Validation
+        "CWE-125",  // Out-of-bounds Read
+        "CWE-119",  // Buffer Overflow
+        "CWE-78",   // OS Command Injection
+        "CWE-22",   // Path Traversal
+        "CWE-352",  // Cross-Site Request Forgery (CSRF)
+        "CWE-94",   // Code Injection
+        "CWE-502",  // Deserialization of Untrusted Data
+        "CWE-269",  // Improper Privilege Management
+        "CWE-276",  // Incorrect Default Permissions
+        "CWE-732",  // Incorrect Permission Assignment
+        "CWE-522",  // Insufficiently Protected Credentials
+        "CWE-306",  // Missing Authentication
+        "CWE-862",  // Missing Authorization
+        "CWE-798",  // Hardcoded Credentials
+        "CWE-200"   // Information Exposure
+      ],
+
+      "high_impact": 2.0,                  // Bonus for high-impact CWE categories
+      "default": 0.5                       // Default CWE weight
+    },
+
+    "max_cap_per_cve": 30.0,               // Max contribution per CVE (saturation cap)
+    "top_n": 100                           // Top N CVEs aggregated into image score
+  },
+
+  "container_context": {
+    "runs_as_root_multiplier": 1.2,        // Multiply score if container runs as root
+    "base_image_eol_multiplier": 1.3,      // Multiply score if base image is EOL
+    "suid_bonus": 5.0,                     // Add if SUID binaries found
+    "dangerous_tools_bonus": 3.0           // Add if dangerous tools (bash, nc, etc.) found
+  },
+
+  "cloud_context": {
+    "public_ip_bonus": 5.0,                // VM has a public IP
+    "ssh_open_bonus": 5.0,                 // SSH password/root login enabled
+    "all_ports_open_bonus": 10.0,          // Firewall allows all ports
+    "metadata_hardening_penalty": 10.0,    // IMDSv2/OS Login/Metadata hardening disabled
+    "identity_attached_bonus": 5.0,        // IAM role / SA / Managed Identity attached
+    "identity_scope_broad_bonus": 10.0,    // Identity has broad permissions
+    "disk_encryption_disabled_bonus": 5.0, // Disk encryption disabled
+    "secure_boot_disabled_bonus": 10.0,    // Secure Boot disabled
+    "serial_port_enabled_bonus": 10.0      // Serial port enabled (GCP)
+  }
+}
